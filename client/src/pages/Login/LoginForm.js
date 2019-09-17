@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Card, Form, Header, Grid, Message } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import styles from "../../assets/styles/login.module.scss";
 const LoginForm = ({
   values,
   handleChange,
@@ -21,7 +22,9 @@ const LoginForm = ({
         )}
         <Card.Content>
           <Form onSubmit={handleSubmit}>
-            <Header textAlign="left">User Login</Header>
+            <Header textAlign="left" className={styles.title}>
+              User Login
+            </Header>
             <Form.Input
               name="email"
               value={values.email}

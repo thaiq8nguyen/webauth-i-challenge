@@ -8,6 +8,7 @@ import {
   LOGIN_FAILURE,
   REGISTRATION_SUCCESS,
   REGISTRATION_FAILURE,
+  LOGOUT,
   SET_IS_LOADING
 } from "./types";
 
@@ -27,7 +28,9 @@ const AuthState = props => {
   const [state, dispatch] = useReducer(authReducer, localState || initialState);
 
   useEffect(() => {
-    localStorage.setItem("auth", JSON.stringify(state));
+    if (state.isAuthenticated) {
+      localStorage.setItem("auth", JSON.stringify(state));
+    }
   }, [state]);
 
   const loginUser = async credential => {
@@ -70,6 +73,8 @@ const AuthState = props => {
     }
   };
 
+  const logout = () => dispatch({ type: LOGOUT });
+
   return (
     <AuthContext.Provider
       value={{
@@ -79,7 +84,8 @@ const AuthState = props => {
         isAdmin: state.isAdmin,
         isLoading: state.isLoading,
         loginUser,
-        registerUser
+        registerUser,
+        logout
       }}
     >
       {props.children}

@@ -1,12 +1,23 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import AuthContext from "../../contexts/Auth/authContext";
 import { Formik } from "formik";
 import { Container, Grid } from "semantic-ui-react";
 import RegistrationForm from "./RegistrationForm";
-import AuthState from "../../contexts/Auth/authState";
-const Registration = () => {
+
+const Registration = ({ history }) => {
   const authContext = useContext(AuthContext);
-  const { isLoading, registerUser, registrationError } = authContext;
+  const {
+    isLoading,
+    isAuthenticated,
+    registerUser,
+    registrationError
+  } = authContext;
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      history.push("/management");
+    }
+  }, [isAuthenticated]);
   return (
     <>
       <Container>

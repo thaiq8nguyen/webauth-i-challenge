@@ -3,6 +3,7 @@ import {
   LOGIN_FAILURE,
   REGISTRATION_SUCCESS,
   REGISTRATION_FAILURE,
+  LOGOUT,
   SET_IS_LOADING
 } from "./types";
 const reducer = (state, action) => {
@@ -35,6 +36,14 @@ const reducer = (state, action) => {
         ...state,
         registrationError: action.payload,
         isLoading: false
+      };
+    }
+    case LOGOUT: {
+      localStorage.removeItem("auth");
+      return {
+        ...state,
+        isAuthenticated: false,
+        token: null
       };
     }
     case SET_IS_LOADING: {
