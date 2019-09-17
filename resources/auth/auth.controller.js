@@ -4,9 +4,18 @@ const jwt = require("jsonwebtoken");
 const { config } = require("../../config");
 
 const createToken = data => {
-  return jwt.sign(data, config.secrets.jwt, {
-    expiresIn: config.secrets.jwtExp
-  });
+  const i = "localhost"; //Issuer
+  const s = "admin@localhost.com"; //subject
+  const a = "http://dev.com"; // audience
+
+  const signOptions = {
+    issuer: i,
+    subject: s,
+    audience: a,
+    expiresIn: "1h",
+    algorithm: "HS256"
+  };
+  return jwt.sign(data, config.secrets.jwt, signOptions);
 };
 
 const controller = {
@@ -20,10 +29,10 @@ const controller = {
       if (user && bcrypt.compareSync(password, user.password)) {
         const token = createToken({
           firstName: user.first_name,
-          lastName: user.last_name,
-          email: user.email
+          lastName: user.last_name
         });
-        req.session.token = token;
+        console.log(token);
+        req.session.token = token; // making a cookie
         res.json({ error: false });
       } else {
         res
@@ -51,13 +60,14 @@ const controller = {
 
       const token = createToken({
         firstName: user.first_name,
-        lastName: user.last_name,
-        email: user.email
+        lastName: user.last_name
       });
-
-      res.status(201).json({ token });
+      req.session.token = token;
+      res.status(201).json({ error: false });
     } catch (e) {
-      res.status(500).json({ message: "Unable to create a new user." });
+      res
+        .status(500)
+        .json({ error: true, message: "Unable to create a new user." });
     }
   }
 };

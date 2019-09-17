@@ -1,15 +1,13 @@
-const checkToken = (req, res, next) => {
-  const authorizationHeader = req.headers["authorization"];
-  if (typeof authorizationHeader !== "undefined") {
-    const bearer = authorizationHeader.split(" ");
-    const token = bearer[1];
-
-    req.token = token;
-
+const checkSession = (req, res, next) => {
+  if (req.session && req.session.token) {
+    req.token = req.session.token;
     next();
   } else {
-    res.status(403).json({ message: "Missing token" });
+    res.status(400).json({
+      error: true,
+      message: "Invalid session or the session has expired"
+    });
   }
 };
 
-module.exports = checkToken;
+module.exports = checkSession;

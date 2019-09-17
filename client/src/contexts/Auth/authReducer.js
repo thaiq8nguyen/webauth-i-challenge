@@ -12,7 +12,6 @@ const reducer = (state, action) => {
       return {
         ...state,
         isAuthenticated: true,
-        token: action.payload.token,
         loginError: null,
         isLoading: false
       };
@@ -27,7 +26,6 @@ const reducer = (state, action) => {
       return {
         ...state,
         isAuthenticated: true,
-        token: action.payload.token,
         registrationError: null,
         isLoading: false
       };
@@ -42,8 +40,7 @@ const reducer = (state, action) => {
       localStorage.removeItem("auth");
       return {
         ...state,
-        isAuthenticated: false,
-        token: null
+        isAuthenticated: false
       };
     }
     case SET_IS_LOADING: {

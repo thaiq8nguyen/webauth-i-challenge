@@ -11,7 +11,7 @@ server.use(express.json());
 server.use(morgan("dev"));
 server.use(session(sessionConfig));
 
-server.use("/api", authRoutes);
-server.use("/api/restricted", restrictedRoutes);
+server.use("/auth", authRoutes);
+server.use("/api", restrictedRoutes);
 
 module.exports = server;

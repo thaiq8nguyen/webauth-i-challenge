@@ -17,10 +17,8 @@ const AuthState = props => {
     loginError: null,
     registrationError: null,
     isAuthenticated: false,
-    isTokenExpired: false,
     isAdmin: false,
-    isLoading: false,
-    token: null
+    isLoading: false
   };
 
   const localState = JSON.parse(localStorage.getItem("auth"));
@@ -39,7 +37,7 @@ const AuthState = props => {
       payload: true
     });
     try {
-      const res = await client().post("/login", credential);
+      const res = await client.post("/auth/login", credential);
 
       dispatch({
         type: LOGIN_SUCCESS,
@@ -59,7 +57,7 @@ const AuthState = props => {
       payload: true
     });
     try {
-      const res = await client().post("/register", user);
+      const res = await client.post("/auth/register", user);
 
       dispatch({
         type: REGISTRATION_SUCCESS,

@@ -5,10 +5,11 @@ const requiresLogin = (req, res, next) => {
   const token = req.token;
 
   try {
-    const isAuthorized = jwt.verify(token, config.secrets.jwt);
-    next();
+    jwt.verify(token, config.secrets.jwt, (error, decoded) => {
+      next();
+    });
   } catch (e) {
-    res.status(401).json({ message: "Invalid token." });
+    res.status(401).json({ error: true, message: "Invalid token." });
   }
 };
 

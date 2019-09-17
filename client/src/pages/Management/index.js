@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Card, Header, Grid, Table } from "semantic-ui-react";
 import Navbar from "../../components/Navbar";
-import { authClient } from "../../utils/apiClient";
+import { client } from "../../utils/apiClient";
 const Management = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    authClient.get("/restricted/users").then(response => {
-      console.log(response.data.users);
-      setUsers(response.data.users);
-    });
+    client
+      .get("/api/users")
+      .then(response => {
+        setUsers(response.data.users);
+      })
+      .catch(errors => {
+        console.log(errors);
+      });
   }, []);
   return (
     <>
