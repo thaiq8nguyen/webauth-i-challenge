@@ -23,13 +23,17 @@ const controller = {
           lastName: user.last_name,
           email: user.email
         });
-
-        res.json({ token });
+        req.session.token = token;
+        res.json({ error: false });
       } else {
-        res.status(401).json({ message: "Invalid email and password" });
+        res
+          .status(401)
+          .json({ error: true, message: "Invalid email and password" });
       }
     } catch (e) {
-      res.status(500).json({ message: "Unable to login right now" });
+      res
+        .status(500)
+        .json({ error: true, message: "Unable to login right now" });
     }
   },
 
