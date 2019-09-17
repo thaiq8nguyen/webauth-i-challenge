@@ -2,7 +2,7 @@ import React, { useEffect, useReducer } from "react";
 import AuthContext from "./authContext";
 import authReducer from "./authReducer";
 
-import { auth } from "../../utils/authAPI";
+import { client } from "../../utils/apiClient";
 import {
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
@@ -39,7 +39,7 @@ const AuthState = props => {
       payload: true
     });
     try {
-      const res = await auth().post("/login", credential);
+      const res = await client().post("/login", credential);
 
       dispatch({
         type: LOGIN_SUCCESS,
@@ -59,7 +59,7 @@ const AuthState = props => {
       payload: true
     });
     try {
-      const res = await auth().post("/register", user);
+      const res = await client().post("/register", user);
 
       dispatch({
         type: REGISTRATION_SUCCESS,

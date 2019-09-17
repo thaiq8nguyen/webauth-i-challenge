@@ -11,7 +11,7 @@ const Login = ({ history }) => {
     if (isAuthenticated) {
       history.push("/management");
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, history]);
   return (
     <>
       <Container>
