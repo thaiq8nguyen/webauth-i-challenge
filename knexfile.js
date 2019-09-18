@@ -51,10 +51,10 @@ module.exports = {
       max: 10
     },
     migrations: {
-      directory: __dirname + "./db/migrations"
+      directory: __dirname + "/db/migrations"
     },
     seeds: {
-      directory: __dirname + "./db/seeds/production"
+      directory: __dirname + "/db/seeds/production"
     },
     useNullAsDefault: true
   }
