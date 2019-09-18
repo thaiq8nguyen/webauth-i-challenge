@@ -8,7 +8,7 @@ const server = express();
 server.use(morgan("dev"));
 server.use(express.json());
 
-server.use("/api", authRoutes);
-server.use("/api/restricted", restrictedRoutes);
+server.use("/auth", authRoutes);
+server.use("/api", restrictedRoutes);
 
 module.exports = server;
