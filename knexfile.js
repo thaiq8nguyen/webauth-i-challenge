@@ -45,7 +45,7 @@ module.exports = {
 
   production: {
     client: "pg",
-    connection: process_env_DATABASE_URL,
+    connection: process.env.DATABASE_URL,
     pool: {
       min: 2,
       max: 10
@@ -57,6 +57,7 @@ module.exports = {
       seeds: {
         directory: __dirname + "/db/seeds/production"
       }
-    }
+    },
+    useNullAsDefault: true
   }
 };
