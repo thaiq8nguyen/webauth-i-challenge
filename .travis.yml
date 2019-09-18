@@ -24,7 +24,7 @@ deploy:
   provider: heroku
   app: webauth-i-challenge-tn
   api_key:
-    secure: ${HEROKU_API_KEY}
+    secure: $HEROKU_API_KEY
   on:
     branch: thai-nguyen-staging
 after_deploy:
