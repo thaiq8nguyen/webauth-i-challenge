@@ -10,7 +10,7 @@ before_install:
 
 branches:
   only:
-    - webauth-i-challenge-tn
+    - thai-nguyen-staging
 
 install:
 
