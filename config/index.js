@@ -1,21 +1,28 @@
 const { merge } = require("lodash");
-const environment = process.env.NODE_ENV || "development";
+const environment = process.env.NODE_ENV || "staging";
 
 const baseConfig = {
   environment,
   port: 4000,
   secrets: {
     jwt: process.env.JWT_SECRET,
-    jwtExp: "3d"
+    jwtExp: "1h"
   }
 };
 
 let environmentConfig = {};
 
-if (environment === "development") {
-  environmentConfig = require("./development").config;
+switch (environment) {
+  case "development":
+    environmentConfig = require("./development").config;
+    break;
+  case "staging":
+    environmentConfig = require("./staging").config;
+    break;
+  case "production":
+    environmentConfig = require("./production").config;
+  default:
+    environmentConfig = require("./development").config;
 }
 
-module.exports = {
-  config: merge(baseConfig, environmentConfig)
-};
+module.exports = merge(baseConfig, environmentConfig);

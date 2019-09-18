@@ -27,6 +27,7 @@
     "knex": "^0.19.4",
     "lodash": "^4.17.15",
     "objection": "^1.6.9",
+    "pg": "^7.12.1",
     "sqlite3": "^4.1.0"
   },
   "devDependencies": {

@@ -32,7 +32,7 @@ const Registration = ({ history }) => {
                 first_name: "Thai",
                 last_name: "Nguyen",
                 email: "tnguyen@email.net",
-                password: "very_secure_password"
+                password: "student"
               }}
               onSubmit={(values, actions) => {
                 registerUser(values);

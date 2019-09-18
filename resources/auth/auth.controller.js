@@ -1,12 +1,21 @@
 const bcrypt = require("bcryptjs");
 const User = require("../user/user.model");
 const jwt = require("jsonwebtoken");
-const { config } = require("../../config");
+const config = require("../../config");
 
 const createToken = data => {
-  return jwt.sign(data, config.secrets.jwt, {
-    expiresIn: config.secrets.jwtExp
-  });
+  const i = "Management"; //Issuer
+  const s = "management@staging.com"; //subject
+  const a = "http://dev.com"; // audience
+
+  const signOptions = {
+    issuer: i,
+    subject: s,
+    audience: a,
+    expiresIn: config.secrets.jwtExp,
+    algorithm: "HS256"
+  };
+  return jwt.sign(data, config.secrets.jwt, signOptions);
 };
 
 const controller = {
@@ -19,17 +28,19 @@ const controller = {
 
       if (user && bcrypt.compareSync(password, user.password)) {
         const token = createToken({
-          firstName: user.first_name,
-          lastName: user.last_name,
-          email: user.email
+          lastName: user.last_name
         });
 
         res.json({ token });
       } else {
-        res.status(401).json({ message: "Invalid email and password" });
+        res
+          .status(401)
+          .json({ error: true, message: ["Invalid email and password"] });
       }
     } catch (e) {
-      res.status(500).json({ message: "Unable to login right now" });
+      res
+        .status(500)
+        .json({ error: true, message: ["Unable to login right now"] });
     }
   },
 
@@ -46,14 +57,14 @@ const controller = {
       });
 
       const token = createToken({
-        firstName: user.first_name,
-        lastName: user.last_name,
-        email: user.email
+        lastName: user.last_name
       });
 
       res.status(201).json({ token });
     } catch (e) {
-      res.status(500).json({ message: "Unable to create a new user." });
+      res
+        .status(500)
+        .json({ error: true, message: ["Unable to create a new user."] });
     }
   }
 };

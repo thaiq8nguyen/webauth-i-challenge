@@ -6,8 +6,7 @@ const Management = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    authClient.get("/restricted/users").then(response => {
-      console.log(response.data.users);
+    authClient.get("/users").then(response => {
       setUsers(response.data.users);
     });
   }, []);

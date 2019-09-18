@@ -39,7 +39,7 @@ const AuthState = props => {
       payload: true
     });
     try {
-      const res = await client().post("/login", credential);
+      const res = await client.post("/login", credential);
 
       dispatch({
         type: LOGIN_SUCCESS,
@@ -59,7 +59,7 @@ const AuthState = props => {
       payload: true
     });
     try {
-      const res = await client().post("/register", user);
+      const res = await client.post("/register", user);
 
       dispatch({
         type: REGISTRATION_SUCCESS,

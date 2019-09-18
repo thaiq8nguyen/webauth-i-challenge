@@ -8,7 +8,9 @@ const checkToken = (req, res, next) => {
 
     next();
   } else {
-    res.status(403).json({ message: "Missing token" });
+    res
+      .status(403)
+      .json({ error: true, message: ["Missing token in the request"] });
   }
 };
 
