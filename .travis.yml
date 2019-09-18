@@ -1,0 +1,29 @@
+language: node_js
+node_js:
+  - "10.14.1"
+cache:
+  npm: true
+  directories:
+    - node_modules
+before_install:
+  - npm install -g npm
+
+branches:
+  only:
+    - webauth-i-challenge-tn
+
+install:
+
+before_script:
+
+script:
+
+before_deploy:
+  - npm run build
+deploy:
+  provider: heroku
+  app: webauth-i-challenge-tn
+  api_key:
+    secure: ${HEROKU_API_KEY}
+after_deploy:
+after_script:
