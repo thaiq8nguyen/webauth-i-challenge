@@ -23,8 +23,8 @@ const Login = ({ history }) => {
           <Grid.Column width={5}>
             <Formik
               initialValues={{
-                email: "tnguyen@email.dev",
-                password: "student"
+                email: "",
+                password: ""
               }}
               onSubmit={(values, actions) => {
                 loginUser(values);

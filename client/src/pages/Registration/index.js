@@ -29,10 +29,10 @@ const Registration = ({ history }) => {
           <Grid.Column width={5}>
             <Formik
               initialValues={{
-                first_name: "Thai",
-                last_name: "Nguyen",
-                email: "tnguyen@email.net",
-                password: "student"
+                first_name: "",
+                last_name: "",
+                email: "",
+                password: ""
               }}
               onSubmit={(values, actions) => {
                 registerUser(values);
