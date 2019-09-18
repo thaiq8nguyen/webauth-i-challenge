@@ -1,4 +1,5 @@
 const config = {
+  dev: "dev",
   secrets: {
     jwt: "I Love Node JS"
   }

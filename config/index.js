@@ -21,6 +21,7 @@ switch (environment) {
     break;
   case "production":
     environmentConfig = require("./production").config;
+    break;
   default:
     environmentConfig = require("./development").config;
 }
