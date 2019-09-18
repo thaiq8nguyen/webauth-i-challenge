@@ -13,11 +13,11 @@ branches:
     - thai-nguyen-staging
 
 install:
-
+  - npm install
 before_script:
 
 script:
-
+  - npm run test
 before_deploy:
   - npm run build
 deploy:
