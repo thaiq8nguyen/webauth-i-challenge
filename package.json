@@ -8,7 +8,7 @@
     "server": "nodemon index.js",
     "dev": "concurrently \"npm run server\" \"cd client && npm run start\"",
     "start": "node index.js",
-    "build": "cd client && npm install && npm run build"
+    "travis-build": "cd client && npm install && npm run build"
   },
   "repository": {
     "type": "git",
