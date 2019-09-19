@@ -3,7 +3,7 @@ node_js:
   - 10.14.1
 branches:
   only:
-    - thai-nguyen-staging
+    - master
 cache:
   directories:
     - node_modules
@@ -21,7 +21,6 @@ deploy:
   app: webauth-i-challenge-tn
   api_key:
     secure: cT2WrZ13E49DiJkxzEdSd89eIHbEcUeTqJQ/GZole0QVOGt46tHdBPWXwkPxaIiDjWiTzs0e4/4ZmrodMIYXpmRM7kf9OyBEH86hHYu1rAyxSGWzp3BLLHOO7I9RdoEBFWRJHaRVB3SrVgG9R4tFRR4IzcJzne2kHLBxqhBeZc/zsCotX2E2xNpPOlUiZ6hn0f6sWGPmugL5QlRjth6VqkHMAoeUJ2+8a2QtBmkqPnjnEmn41HT9W0D0IeMjSwBsom1rscKxdoNqbNAJowORkw+oc0TY8nTHQunSVYVx/gUbHB0sPhaMBA23lGm08SaDqSyNHzvZFM2lCVkHULB1U1qmtbGAkHnRndAE8YzFitcZwTo2ty1Okl/HVpk5h6c6Q8CbfrRtePNAsRPpOtmSxgMEz2QH+T5pXm6StJQbj2GCx6AP2F8jCM9/uHF81KNNSLLzdHS/KZMz9c81xavTxp8jcUaBShfdoYkHBGuntv8BK+COWk1mshEMr18RZIseOnGiYkHvh0A08zApK9cuQBBMwKkWrP4mXb7SDPQrA2g+M7fmSHn/ew5lxY2DkMCOZLmZXXSsW8AVOpRapAGx5rp2JgAayNff5+Dac3JDpbATnZ448s0lXvpHKAMdUEQjJIbAIdj6m+7yHE0mipxhL5kKETzovWoO4xJSiXNg2nI=
-    on:
-      all_branches: true
+
 after_deploy:
 after_script:
