@@ -1,0 +1,47 @@
+{
+  "name": "webauth-i-challenge",
+  "version": "1.0.0",
+  "description": "## Topics",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon index.js",
+    "dev": "concurrently \"npm run server\" \"cd client && npm run start\"",
+    "start": "node index.js",
+    "build": "cd client && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thaiq8nguyen/webauth-i-challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thaiq8nguyen/webauth-i-challenge/issues"
+  },
+  "homepage": "https://github.com/thaiq8nguyen/webauth-i-challenge#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "faker": "^4.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.19.4",
+    "lodash": "^4.17.15",
+    "morgan": "^1.9.1",
+    "objection": "^1.6.9",
+    "pg": "^7.12.1",
+    "sqlite3": "^4.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.2",
+    "eslint": "^6.4.0",
+    "nodemon": "^1.19.2",
+    "prettier": "^1.18.2"
+  },
+  "engines": {
+    "node": "10.14.1",
+    "npm": "6.10.3"
+  }
+}
