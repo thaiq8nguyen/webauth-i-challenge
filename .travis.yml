@@ -1,15 +1,14 @@
 language: node_js
 node_js:
   - 10.14.1
+branches:
+  only:
+    - thai-nguyen-staging
 cache:
-  npm: true
   directories:
     - node_modules
 before_install:
   - npm install -g npm
-branches:
-  only:
-    - thai-nguyen-staging
 install:
   - npm install
 before_script:
@@ -21,8 +20,6 @@ deploy:
   provider: heroku
   app: webauth-i-challenge-tn
   api_key:
-    secure: KIjjpVQGEf7ZXJqLwsDAj0uZUVy+/Inh7msZzifK9YjUaoV6gL9WdVnpWGcobS3hOJjdDdiyioWzcB6KJZ9F5VqBKD1+tEo2hGaS7vBKkVswjQMJWRwpRBPb1s55fjF3jTBOySMoJl1OlkIVwLJe+Ze8ad6IPpd/j83l/2YkEoztM1kk9DTfqKhLIaztB9Zck8jzKbR3r3R9lpRjzK3oqYJSbZUuVXGvF8e1FtvGyYEzBMkH78852FmTcAhuVSNs2XHupWzLJlSefc7kmH50WksCSduGjBnhJc92d2Ob9almz2L/NxF1HgPH4A6hIfE+9+GFCRIrhmxO+Szm2sUKCLcid/XK1IKi+OI7VoKgFo2z7aq6eE8BZTamokOnQh7ENKkc4R/3TeT7eFzAUQ3ctoDhA/EdaTy0f18GKMRSSUbKPU2VWdWcQkEe8GqCa8/dhuQnQIYaa126iOxKgWiufw+MKQLTVFteSF+r85fbL/EOnYvFZfBWUn3M9xsVI+7gT9UPnCetdELyQT+z8czJN87hFCpS7TB6y0WpCjkUmIVWoaqhPm320ohz9Lsadc9wlYOijkCtC5R4bSs9Hed5w0ZLWRy96bNdArAQtA8TSpbyhmxfDSZ9XXFFZ/MyDxBroSNkrSi4kA9Wy6RxsphZFuDJ55TDua8ayOQdeLknQdc=
-  on:
-    branch: thai-nguyen-staging
+    secure: cT2WrZ13E49DiJkxzEdSd89eIHbEcUeTqJQ/GZole0QVOGt46tHdBPWXwkPxaIiDjWiTzs0e4/4ZmrodMIYXpmRM7kf9OyBEH86hHYu1rAyxSGWzp3BLLHOO7I9RdoEBFWRJHaRVB3SrVgG9R4tFRR4IzcJzne2kHLBxqhBeZc/zsCotX2E2xNpPOlUiZ6hn0f6sWGPmugL5QlRjth6VqkHMAoeUJ2+8a2QtBmkqPnjnEmn41HT9W0D0IeMjSwBsom1rscKxdoNqbNAJowORkw+oc0TY8nTHQunSVYVx/gUbHB0sPhaMBA23lGm08SaDqSyNHzvZFM2lCVkHULB1U1qmtbGAkHnRndAE8YzFitcZwTo2ty1Okl/HVpk5h6c6Q8CbfrRtePNAsRPpOtmSxgMEz2QH+T5pXm6StJQbj2GCx6AP2F8jCM9/uHF81KNNSLLzdHS/KZMz9c81xavTxp8jcUaBShfdoYkHBGuntv8BK+COWk1mshEMr18RZIseOnGiYkHvh0A08zApK9cuQBBMwKkWrP4mXb7SDPQrA2g+M7fmSHn/ew5lxY2DkMCOZLmZXXSsW8AVOpRapAGx5rp2JgAayNff5+Dac3JDpbATnZ448s0lXvpHKAMdUEQjJIbAIdj6m+7yHE0mipxhL5kKETzovWoO4xJSiXNg2nI=
 after_deploy:
 after_script:
